@@ -4,8 +4,8 @@ import userEvent from '@testing-library/user-event';
 import renderWithRouter from './servicesForTests/RenderWithRouter';
 import App from '../App';
 
-describe('Deve testar componente App.js', () => {
-  it('verifies if links are renderized', () => {
+describe('Should test Component App.js', () => {
+  it('verify if links are renderized', () => {
     renderWithRouter(<App />);
     const home = screen.getByRole('link', { name: /home/i });
     const about = screen.getByRole('link', {
@@ -17,7 +17,7 @@ describe('Deve testar componente App.js', () => {
     expect(favoritePokemons).toBeInTheDocument();
   });
 
-  it('verifies if page are redirected to home', () => {
+  it('verify if page are redirected to home', () => {
     const { history } = renderWithRouter(<App />);
     const home = screen.getByRole('link', { name: /home/i });
     userEvent.click(home);
@@ -26,7 +26,7 @@ describe('Deve testar componente App.js', () => {
     expect(pathname).toBe('/');
   });
 
-  it('verifies if page are redirected to about', () => {
+  it('verify if page are redirected to about', () => {
     const { history } = renderWithRouter(<App />);
     const about = screen.getByRole('link', {
       name: /about/i });
@@ -35,7 +35,7 @@ describe('Deve testar componente App.js', () => {
     expect(pathname).toBe('/about');
   });
 
-  it('verifies if page are redirected to favorites', () => {
+  it('verify if page are redirected to favorites', () => {
     const { history } = renderWithRouter(<App />);
     const favoritePokemons = screen.getByRole('link', { name: /favorite pokémons/i });
     userEvent.click(favoritePokemons);
@@ -44,7 +44,7 @@ describe('Deve testar componente App.js', () => {
     expect(pathname).toBe('/favorites');
   });
 
-  it('verifies if page are redirected to not found', () => {
+  it('verify if page are redirected to not found', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/pagina/que-nao-existe/');
 
