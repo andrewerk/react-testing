@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, getAllByRole } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './servicesForTests/RenderWithRouter';
 import App from '../App';
@@ -26,7 +26,8 @@ describe('Test details page', () => {
     });
     expect(summary).toBeInTheDocument();
     const resume = screen.getByText(
-      /this intelligent pokémon roasts hard berries with electricity to make/i);
+      /this intelligent pokémon roasts hard berries with electricity to make/i,
+    );
     expect(resume).toBeInTheDocument();
   });
   it('verify if map information are rendered', () => {
